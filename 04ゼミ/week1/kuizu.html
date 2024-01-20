@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>私が大学で履修した第二言語はなんでしょうか</h1>
+    <div>
+      <button id="button1">中国語</button>
+      <button id="button2">スペイン語</button
+      ><button id="button3">ロシア語</button>
+    </div>
+    <div id="answer">答え</div>
+
+    <script>
+      const button1 = document.getElementById("button1")
+      const button2 = document.getElementById("button2")
+      const button3 = document.getElementById("button3")
+      const answer = document.getElementById("answer")
+
+      button1.onclick = function () {
+        answer.textContent = "不正解！"
+      }
+      button2.onclick = function () {
+        answer.textContent = "不正解！"
+      }
+      button3.onclick = function () {
+        answer.textContent = "正解！"
+      }
+    </script>
+  </body>
+</html>
