@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>メモアプリ</title>
+  </head>
+  <body>
+    <h2>メモアプリ</h2>
+    <input type="text" id="memo-input" />
+    <button id="add-button">保存</button>
+    <button id="sort-button">並び替え</button>
+    <div id="memo-container"></div>
+    <script>
+      const memoInput = document.getElementById("memo-input")
+      const addButton = document.getElementById("add-button")
+      const sortButton = document.getElementById("sort-button")
+      const memoContainer = document.getElementById("memo-container")
+      let memos = []
+      if (localStorage.memos) {
+        memos = JSON.parse(localStorage.memos)
+        for (let i = 0; i < memos.length; i++) {
+          const div = document.createElement("div")
+          div.textContent = memos[i]
+          memoContainer.append(div)
+        }
+      }
+
+      addButton.onclick = function () {
+        memoContainer.textContent = ""
+        memos.push(memoInput.value)
+        localStorage.memos = JSON.stringify(memos)
+        for (let i = 0; i < memos.length; i++) {
+          const div = document.createElement("div")
+          div.textContent = memos[i]
+          memoContainer.append(div)
+        }
+      }
+      sortButton.onclick = function () {
+        memos.sort()
+        memoContainer.textContent = ""
+        for (let i = 0; i < memos.length; i++) {
+          const div = document.createElement("div")
+          div.textContent = memos[i]
+          memoContainer.append(div)
+        }
+      }
+    </script>
+  </body>
+</html>
