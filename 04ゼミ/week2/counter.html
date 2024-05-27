@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>電源付きのカウンター</title>
+  </head>
+  <body>
+    <h1 id="display">0</h1>
+    <button id="plus-button">+1</button>
+    <button id="dengen-button">電源ON/OFFボタン</button>
+    <div id="dengen-display">電源OFF</div>
+    <script>
+      // ① HTML の取得
+      const display = document.getElementById("display")
+      const plusButton = document.getElementById("plus-button")
+      const dengenButton = document.getElementById("dengen-button")
+      const dengenDisplay = document.getElementById("dengen-display")
+
+      // ② 状態は、定義して、使いまわせるようにする
+      let count = 0
+      let dengen = false
+
+      // ③ 実際にボタンを押した時の処理を書いていく
+      plusButton.onclick = function () {
+        if (dengen) {
+          count = count + 1
+          display.textContent = count
+        }
+      }
+      dengenButton.onclick = function () {
+        if (dengen) {
+          dengen = false
+          dengenDisplay.textContent = "電源OFF"
+        } else {
+          dengen = true
+          dengenDisplay.textContent = "電源on"
+        }
+      }
+
+      // if (dengen) {
+      //   dengenDisplay.textContent = "電源ON"
+      // } else {
+      //   dengenDisplay.textContent = "電源OFF"
+      // }
+
+      // 三項演算子(別におぼえなくてOK)
+    </script>
+  </body>
+</html>
